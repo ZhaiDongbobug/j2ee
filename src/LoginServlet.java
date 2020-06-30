@@ -8,7 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet {
-	//实例化
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String password = request.getParameter("password");
+		
+		if("admin".equals(name)&&"123".equals(password)) {
+			request.getSession().setAttribute("userName", name);
+			response.sendRedirect("listHero");
+		}else {
+			response.sendRedirect("login.html");
+		}
+	}
+	/*//实例化
 	public LoginServlet() {
 		System.out.println("LoginServlet 构造方法 被调用");
 	}
@@ -56,6 +69,6 @@ public class LoginServlet extends HttpServlet {
 	//销毁
 	public void destory() {
 		System.out.println("destory()");
-	}
+	}*/
 	
 }

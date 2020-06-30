@@ -23,7 +23,7 @@ public class HeroAddServlet extends HttpServlet{
 		
 		new HeroDAO().add(hero);
 		
-		response.sendRedirect(request.getServletContext().getContextPath() + "/listHero");
+		response.sendRedirect("listHero");
 		
 	}
 }
