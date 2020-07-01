@@ -19,7 +19,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/login</url-pattern>
+		<url-pattern>/jsp/login</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -49,7 +49,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>HeroListServlet</servlet-name>
-		<url-pattern>/listHero</url-pattern>
+		<url-pattern>/jsp/listHero</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -138,4 +138,55 @@
 	    <servlet-name>testconfig</servlet-name>
 	    <url-pattern>/testconfig</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>FirstFilter</filter-name>
+		<filter-class>filter.FirstFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>FirstFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>filter.EncodingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>AuthFilter</filter-name>
+		<filter-class>filter.AuthFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>listener.ContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>listener.ContextAttributeListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>listener.SessionListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>listener.RequestListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>listener.OnlineNumberListener</listener-class>
+	</listener>
+	
 </web-app>
